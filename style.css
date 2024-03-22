@@ -1,0 +1,15 @@
+.background-gif {
+    background-image: url(https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/bdba91ee-8e62-43ae-aa6a-358e88f4d884/dcyjopc-4622f225-43d1-4c2e-a2ce-b2709deac937.gif?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcL2JkYmE5MWVlLThlNjItNDNhZS1hYTZhLTM1OGU4OGY0ZDg4NFwvZGN5am9wYy00NjIyZjIyNS00M2QxLTRjMmUtYTJjZS1iMjcwOWRlYWM5MzcuZ2lmIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.pXekLw7OF2LBFfjwwwLksC6PWfVZCj2lnUdjEVBCcDs);
+
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.background-cave {
+    background-image: url(https://img.itch.zone/aW1nLzEyMTkxMTQwLnBuZw==/original/ALYiiE.png);
+
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}

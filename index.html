@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loot Goblin</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@latest/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="background-cave">
+    <header class="container-fluid bg-dark text-light">
+        <div class="row justify-content-center">
+            <div class="col text-center">Loot Goblin</div>
+        </div>
+    </header>
+
+    <!-- SECTION Image to Click -->
+    <main class="container-fluid">
+        <div class="row justify-content-center">
+            <div class="col-6 text-center">
+                <div>
+                    <img onclick="ClickChest()" src="assets/treasure-chest.png" alt="treasure chest">
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <section class="container-fluid">
+        <!-- SECTION Current Stats -->
+        <div class="row justify-content-center text-light">
+            <div id="click-strength" class="col-2 bg-secondary">Click Count</div>
+            <div id="click-count" class="col-2 bg-dark">Total Clicks/currency</div>
+            <div id="auto-click-rate" class="col-2 bg-secondary">Auto Count</div>
+        </div>
+        <div class="row">
+
+            <!-- SECTION Upgrades -->
+            <div class="col-6 bg-dark-subtle">
+                <div class="row">
+                    <div class="col-6">
+                        <div>
+                            Click Upgrades
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div>
+                            Auto Upgrades
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        <div class="row">
+                            <div class="col">
+                                <button onclick="BuyUpgrade('strength', clickUpgrades)" class="btn btn-primary">20 <i
+                                        class="mdi mdi-circle-multiple"></i></button>
+                            </div>
+                            <div class="col">
+                                <div>💪+1</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="row">
+                            <div class="col">
+                                <button onclick="BuyUpgrade('goblin', autoUpgrades)" class="btn btn-primary">20 <i
+                                        class="mdi mdi-circle-multiple"></i></button>
+                            </div>
+                            <div class="col">
+                                <div>👺+2 / 3s</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="row">
+                            <div class="col">
+                                <button onclick="BuyUpgrade('gold-bag', clickUpgrades)" class="btn btn-primary">50 <i
+                                        class="mdi mdi-circle-multiple"></i></button>
+                            </div>
+                            <div class="col">
+                                <div>💰+3</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="row">
+                            <div class="col">
+                                <button onclick="BuyUpgrade('strong-goblin', autoUpgrades)" class="btn btn-primary">50
+                                    <i class="mdi mdi-circle-multiple"></i></button>
+                            </div>
+                            <div class="col">
+                                <div>👹+5 / 3s</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SECTION Click Stats -->
+            <div class="col-6 bg-dark-subtle">
+                <div class="row">
+                    <div class="col-6">
+                        <div>
+                            Click Stats
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div>
+                            Auto Stats
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        <div id="strength" class="row">
+                            <div class="col">
+                                <div><span>0</span>💪</div>
+                            </div>
+                            <div class="col">
+                                <div><i class="mdi mdi-arrow-right-bold-box-outline"></i><span>0</span></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div id="goblin" class="row">
+                            <div class="col">
+                                <div><span>0</span>👺</div>
+                            </div>
+                            <div class="col">
+                                <div><i class="mdi mdi-arrow-right-bold-box-outline"></i><span>0</span></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div id="gold-bag" class="row">
+                            <div class="col">
+                                <div><span>0</span>💰</div>
+                            </div>
+                            <div class="col">
+                                <div><i class="mdi mdi-arrow-right-bold-box-outline"></i><span>0</span></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div id="strong-goblin" class="row">
+                            <div class="col">
+                                <div><span>0</span>👹</div>
+                            </div>
+                            <div class="col">
+                                <div><i class="mdi mdi-arrow-right-bold-box-outline"></i><span>0</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </section>
+
+
+
+
+    <script src="app.js"></script>
+</body>
+
+</html>
