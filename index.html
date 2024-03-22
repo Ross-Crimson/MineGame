@@ -13,88 +13,109 @@
 </head>
 
 <body class="background-cave">
-    <header class="container-fluid bg-dark text-light">
-        <div class="row justify-content-center">
-            <div class="col text-center">Loot Goblin</div>
+    <header class="container-fluid bg-dark text-light sticky-top">
+        <div class="row justify-content-start">
+            <div id="lifetime" class="col-4 text-start">Lifetime Gold:</div>
+            <div class="col-4 text-center">Loot Goblin</div>
         </div>
     </header>
 
     <!-- SECTION Image to Click -->
     <main class="container-fluid">
-        <div class="row justify-content-center">
+        <div id="treasure-area" class="row justify-content-center">
+            <!-- <div class="col goblin-worker">
+                <img class="goblin-size" src="assets/loot-goblin.png" alt="loot-goblin">
+            </div> -->
             <div class="col-6 text-center">
                 <div>
-                    <img onclick="ClickChest()" src="assets/treasure-chest.png" alt="treasure chest">
+                    <img onclick="ClickChest()" class="treasure" src="assets/treasure-chest.png" alt="treasure chest">
                 </div>
             </div>
         </div>
     </main>
 
-    <section class="container-fluid">
+    <section class="container">
         <!-- SECTION Current Stats -->
         <div class="row justify-content-center text-light">
-            <div id="click-strength" class="col-2 bg-secondary">Click Count</div>
-            <div id="click-count" class="col-2 bg-dark">Total Clicks/currency</div>
-            <div id="auto-click-rate" class="col-2 bg-secondary">Auto Count</div>
+            <div id="click-strength" class="col-2 bg-secondary rounded text-start click-rate fs-4 p-2 mt-3">Click Count
+                <i class="mdi mdi-button-pointer"></i>
+            </div>
+            <div id="click-count" class="col-3 bg-dark rounded text-center click-count fs-4 p-2 align-text-center">Total
+                Clicks/currency
+            </div>
+            <div id="auto-click-rate" class="col-2 bg-secondary rounded text-end auto-click-rate fs-4 p-2 mt-3">Auto
+                Count
+                <i class="mdi mdi-timer"></i>
+            </div>
         </div>
-        <div class="row">
+        <div class="row justify-content-evenly bg-dark rounded">
 
             <!-- SECTION Upgrades -->
-            <div class="col-6 bg-dark-subtle">
+            <div class="col-5 bg-dark-subtle m-2 rounded">
                 <div class="row">
                     <div class="col-6">
-                        <div>
+                        <div class="p-2 fw-bold fs-5">
                             Click Upgrades
                         </div>
                     </div>
                     <div class="col-6">
-                        <div>
+                        <div class="p-2 fw-bold fs-5">
                             Auto Upgrades
                         </div>
                     </div>
                 </div>
-                <div class="row">
+                <div class="row justify-content-start">
                     <div class="col-6">
                         <div class="row">
-                            <div class="col">
-                                <button onclick="BuyUpgrade('strength', clickUpgrades)" class="btn btn-primary">20 <i
-                                        class="mdi mdi-circle-multiple"></i></button>
+                            <div class="col-5 justify-content-end">
+                                <div class="p-1">
+                                    <button id="strength-btn" onclick="BuyUpgrade('strength', clickUpgrades)"
+                                        class="btn btn-primary fs-5"><span></span> <i
+                                            class="mdi mdi-circle-multiple"></i></button>
+                                </div>
                             </div>
-                            <div class="col">
-                                <div>💪+1</div>
+                            <div class="col-4">
+                                <div class="fs-5">💪+1</div>
                             </div>
                         </div>
                     </div>
                     <div class="col-6">
                         <div class="row">
-                            <div class="col">
-                                <button onclick="BuyUpgrade('goblin', autoUpgrades)" class="btn btn-primary">20 <i
-                                        class="mdi mdi-circle-multiple"></i></button>
+                            <div class="col-5">
+                                <div class="p-1">
+                                    <button id="goblin-btn" onclick="BuyUpgrade('goblin', autoUpgrades)"
+                                        class="btn btn-primary fs-5">20 <i class="mdi mdi-circle-multiple"></i></button>
+                                </div>
                             </div>
-                            <div class="col">
-                                <div>👺+2 / 3s</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-6">
-                        <div class="row">
-                            <div class="col">
-                                <button onclick="BuyUpgrade('gold-bag', clickUpgrades)" class="btn btn-primary">50 <i
-                                        class="mdi mdi-circle-multiple"></i></button>
-                            </div>
-                            <div class="col">
-                                <div>💰+3</div>
+                            <div class="col-4">
+                                <div class="fs-5">👺+2 / 3s</div>
                             </div>
                         </div>
                     </div>
                     <div class="col-6">
                         <div class="row">
-                            <div class="col">
-                                <button onclick="BuyUpgrade('strong-goblin', autoUpgrades)" class="btn btn-primary">50
-                                    <i class="mdi mdi-circle-multiple"></i></button>
+                            <div class="col-5">
+                                <div class="p-1">
+                                    <button id="gold-bag-btn" onclick="BuyUpgrade('gold-bag', clickUpgrades)"
+                                        class="btn btn-primary fs-5">50 <i class="mdi mdi-circle-multiple"></i></button>
+                                </div>
                             </div>
-                            <div class="col">
-                                <div>👹+5 / 3s</div>
+                            <div class="col-4">
+                                <div class="fs-5">💰+3</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="row">
+                            <div class="col-5">
+                                <div class="p-1">
+                                    <button id="strong-goblin-btn" onclick="BuyUpgrade('strong-goblin', autoUpgrades)"
+                                        class="btn btn-primary fs-5">50
+                                        <i class="mdi mdi-circle-multiple"></i></button>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="fs-5">👹+5 / 3s</div>
                             </div>
                         </div>
                     </div>
@@ -102,20 +123,20 @@
             </div>
 
             <!-- SECTION Click Stats -->
-            <div class="col-6 bg-dark-subtle">
+            <div class="col-5 bg-dark-subtle m-2 rounded">
                 <div class="row">
                     <div class="col-6">
-                        <div>
+                        <div class="p-2 fw-bold fs-5">
                             Click Stats
                         </div>
                     </div>
                     <div class="col-6">
-                        <div>
+                        <div class="p-2 fw-bold fs-5">
                             Auto Stats
                         </div>
                     </div>
                 </div>
-                <div class="row">
+                <div class="row fs-5">
                     <div class="col-6">
                         <div id="strength" class="row">
                             <div class="col">

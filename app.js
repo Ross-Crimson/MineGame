@@ -29,18 +29,25 @@ let autoUpgrades = [
 ]
 
 let gold = 0
+let lifeTimeGold = 0
 let clickStrength = 1
 let costGrowth = 1.1
 
 //clicks
 function ClickChest() {
-    gold += clickStrength;
-    DrawCurrentClicks()
+    AddGold(clickStrength)
 }
 
 function AutoClickChest() {
-    gold += CalcAutoClickGold()
+    AddGold(CalcAutoClickGold())
+    SpawnGoblinLogic()
+}
+
+function AddGold(goldGained) {
+    gold += goldGained
+    lifeTimeGold += goldGained
     DrawCurrentClicks()
+    DrawPrices()
 }
 
 //buy
@@ -79,24 +86,47 @@ function CalcAutoClickGold() {
 //draw
 function DrawCurrentClicks() {
     let currClickElm = document.getElementById('click-count')
-    currClickElm.innerText = gold.toString()
+    currClickElm.innerHTML = `${gold.toString()} <i class="mdi mdi-circle-multiple"></i>`
+
+    let lifeTimeGoldElm = document.getElementById('lifetime')
+    lifeTimeGoldElm.innerHTML = `LifeTime Gold: ${lifeTimeGold.toString()}<i class="mdi mdi-circle-multiple"></i>`
 }
 
 function DrawPrices() {
     clickUpgrades.forEach(upgrade => {
-        let currButtonElm = document.getElementById('')
-        //currButtonElm.que
+        let currButtonElm = document.getElementById(upgrade.name + "-btn")
+        currButtonElm.innerHTML = `${upgrade.prices} <i class="mdi mdi-circle-multiple"></i>`
+        if (gold < upgrade.prices) {
+            currButtonElm.classList.add('disabled')
+        }
+        else {
+            currButtonElm.classList.remove('disabled')
+            //currButtonElm.classList.remove('hidden')
+        }
+    })
+    autoUpgrades.forEach(upgrade => {
+        let currButtonElm = document.getElementById(upgrade.name + "-btn")
+        currButtonElm.innerHTML = `${upgrade.prices} <i class="mdi mdi-circle-multiple"></i>`
+        if (gold < upgrade.prices) {
+            currButtonElm.classList.add('disabled')
+        }
+        else {
+            currButtonElm.classList.remove('disabled')
+            //currButtonElm.classList.remove('hidden')
+        }
     })
 }
 
 function DrawClickStrength() {
     //click strength value (top bar)
     let currClickStrengthElm = document.getElementById('click-strength')
-    currClickStrengthElm.innerText = clickStrength.toString()
+    currClickStrengthElm.innerHTML = `<i
+    class="mdi mdi-button-pointer"></i> ${clickStrength.toString()}`
 
     //auto gain value (top bar)
     let currAutoClickRateElem = document.getElementById('auto-click-rate')
-    currAutoClickRateElem.innerText = CalcAutoClickGold().toString()
+    currAutoClickRateElem.innerHTML = `${CalcAutoClickGold().toString()} <i
+    class="mdi mdi-timer"></i>`
 
     clickUpgrades.forEach(upgrade => {
         let currClickStatElm = document.getElementById(upgrade.name)
@@ -113,6 +143,32 @@ function DrawClickStrength() {
     })
 }
 
+//spawn goblin
+function SpawnGoblinLogic() {
+    //create a loop that goes through an active goblin count and adds animation class
+    //Create thresholds for how many goblins should exist at once
+    //after threshold is reached, incriment that to "active goblin" count
+    //after timer ends go through loop and remove animation class
+
+
+    let goblin = `<div class="col goblin-worker">
+    <img class="goblin-size" src="assets/loot-goblin.png" alt="loot-goblin">
+    </div>`
+    let treasureSpace = document.getElementById('treasure-area')
+    treasureSpace.innerHTML += goblin
+
+    //currently does nothing
+    setTimeout(() => {
+        SpawnGoblin(goblin)
+    }, 3000);
+}
+
+function SpawnGoblin(goblin) {
+
+}
+
 setInterval(AutoClickChest, 3000);
+
+DrawPrices()
 DrawCurrentClicks()
 DrawClickStrength()
