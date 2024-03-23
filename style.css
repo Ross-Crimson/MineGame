@@ -47,8 +47,24 @@
     z-index: -100;
 }
 
-.goblin-worker {
+.goblin {
     position: absolute;
+    transform: translate(2000px, 0px);
+}
+
+.goblin-worker {
+    align-self: center;
+    transform: translate(-300px, 0px);
+    animation: goblin-move 2s;
+}
+
+.goblin-worker2 {
+    align-self: center;
+    transform: translate(-300px, 0px);
+    animation: goblin-move 2s;
+}
+
+.goblin-worker3 {
     align-self: center;
     transform: translate(-300px, 0px);
     animation: goblin-move 2s;

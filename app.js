@@ -39,8 +39,9 @@ function ClickChest() {
 }
 
 function AutoClickChest() {
-    AddGold(CalcAutoClickGold())
-    SpawnGoblinLogic()
+    let autoClickValue = CalcAutoClickGold()
+    AddGold(autoClickValue)
+    //SpawnGoblinLogic(autoClickValue)
 }
 
 function AddGold(goldGained) {
@@ -144,22 +145,42 @@ function DrawClickStrength() {
 }
 
 //spawn goblin
-function SpawnGoblinLogic() {
+function SpawnGoblinLogic(autoClickValue) {
     //create a loop that goes through an active goblin count and adds animation class
     //Create thresholds for how many goblins should exist at once
     //after threshold is reached, incriment that to "active goblin" count
     //after timer ends go through loop and remove animation class
 
+    let goblin1Elm = document.getElementById('goblin1')
+    let goblin2Elm = document.getElementById('goblin2')
+    let goblin3Elm = document.getElementById('goblin2')
 
-    let goblin = `<div class="col goblin-worker">
-    <img class="goblin-size" src="assets/loot-goblin.png" alt="loot-goblin">
-    </div>`
-    let treasureSpace = document.getElementById('treasure-area')
-    treasureSpace.innerHTML += goblin
+
+    if (autoClickValue > 30) {
+        goblin1Elm.classList.add('goblin-worker')
+        goblin2Elm.classList.add('goblin-worker2')
+        goblin3Elm.classList.add('goblin-woker3')
+    }
+    else if (autoClickValue > 15) {
+        goblin1Elm.classList.add('goblin-worker')
+        goblin2Elm.classList.add('goblin-worker2')
+    }
+    else if (autoClickValue > 5) {
+        goblin1Elm.classList.add('goblin-worker')
+    }
+
+
+    //let goblin = `<div class="col goblin goblin-worker">
+    //<img class="goblin-size" src="assets/loot-goblin.png" alt="loot-goblin">
+    //</div>`
+    //let treasureSpace = document.getElementById('treasure-area')
+    //treasureSpace.innerHTML += goblin
 
     //currently does nothing
     setTimeout(() => {
-        SpawnGoblin(goblin)
+        goblin1Elm.classList.remove('goblin-worker')
+        goblin2Elm.classList.remove('goblin-worker2')
+        goblin3Elm.classList.remove('goblin-worker3')
     }, 3000);
 }
 
