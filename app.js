@@ -1,13 +1,13 @@
 let clickUpgrades = [
     {
         name: 'strength',
-        prices: 20,
+        prices: 30,
         quantity: 0,
         multiplier: 1
     },
     {
         name: 'gold-bag',
-        prices: 50,
+        prices: 60,
         quantity: 0,
         multiplier: 3
     }
